@@ -4,7 +4,7 @@ const first = (input: string) => {
   const left: Array<number> = [];
   const right: Array<number> = [];
 
-  lines.forEach(element => {
+  lines.forEach((element) => {
     const res = element.split('   ');
     left.push(+res[0]);
     right.push(+res[1]);
@@ -17,7 +17,7 @@ const first = (input: string) => {
   for (let i = 0; i < left.length; i++) {
     sum += Math.abs(left[i] - right[i]);
   }
-  
+
   return sum.toString();
 };
 
@@ -27,7 +27,7 @@ const second = (input: string) => {
   const lines = input.split('\r\n');
   const left = new Set<number>();
   const right = new Map<number, number>();
-  lines.forEach(element => {
+  lines.forEach((element) => {
     const res = element.split('   ');
     left.add(+res[0]);
     if (right.has(+res[1])) {
@@ -38,12 +38,11 @@ const second = (input: string) => {
   });
 
   let sum = 0;
-  left.forEach(num => {
+  left.forEach((num) => {
     if (right.has(num)) {
       sum += num * right.get(num);
     }
   });
-
 
   return sum.toString();
 };
